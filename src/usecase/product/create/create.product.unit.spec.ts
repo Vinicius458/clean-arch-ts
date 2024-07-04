@@ -55,17 +55,3 @@ describe("Unit test create product use case", () => {
     await expect(productCreateUseCase.execute(input)).rejects.toThrow();
   });
 });
-
-// describe("Unit test create product use case", () => {
-//     it("should create a product", async () => {
-//       const productRepository = MockRepository();
-//       const productCreateUseCase = new CreateProductUseCase(productRepository);
-
-//       const output = await productCreateUseCase.execute(input);
-
-//       expect(output).toEqual({
-//         id: expect.any(String),
-//         name: input.name,
-//         price: input.price,
-//       });
-//     });
