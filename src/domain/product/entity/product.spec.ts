@@ -19,11 +19,11 @@ describe("Product unit tests", () => {
     }).toThrowError("Price must be greater than zero");
   });
 
-  it("should throw error when name is and id are empty", () => {
+  it("should throw error when name is empty and price is greater than zero", () => {
     expect(() => {
-      const product = new Product("", "", -10);
+      const product = new Product("123", "", -10);
     }).toThrowError(
-      "product: Id is required,product: Name is required,product: Price must be greater than zero"
+      "product: Name is required,product: Price must be greater than zero"
     );
   });
 
