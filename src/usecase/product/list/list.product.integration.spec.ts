@@ -4,6 +4,7 @@ import ProductFactory from "../../../domain/product/factory/product.factory";
 import ProductModel from "../../../infrastructure/product/repository/sequelize/product.model";
 import ProductRepository from "../../../infrastructure/product/repository/sequelize/product.repository";
 import ListProductUseCase from "./list.product.usecase";
+import ProductB from "../../../domain/product/entity/product-b";
 
 describe("Integration test list product use case", () => {
   let sequelize: Sequelize;
@@ -48,7 +49,7 @@ describe("Integration test list product use case", () => {
       name: product.name,
       price: product.price,
     });
-    const product2 = new Product(
+    const product2 = new ProductB(
       products[1].id,
       products[1].name,
       products[1].price
@@ -69,7 +70,7 @@ describe("Integration test list product use case", () => {
     expect(output.products[0].price).toBe(products[0].price);
     expect(output.products[1].id).toBe(products[1].id);
     expect(output.products[1].name).toBe(products[1].name);
-    expect(output.products[1].price).toBe(products[1].price);
+    expect(output.products[1].price).toBe(products[1].price * 2);
   });
   it("should throw an error, if not exists a product", async () => {
     const productRepository = new ProductRepository();
